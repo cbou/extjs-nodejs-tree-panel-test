@@ -1,0 +1,144 @@
+{
+    "id": "ExtBox1-ext-gen4647",
+    "type": "treepanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|initialView": true,
+        "height": 242,
+        "width": 233,
+        "title": "My Tree Panel",
+        "store": "NodeStore",
+        "designer|userClassName": "MyTreePanel",
+        "designer|userAlias": "treepanel"
+    },
+    "customConfigs": [],
+    "designerId": "1c7ffccd-78c9-45a3-b68b-57e5d11a273c",
+    "$viewOrder": 0,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen4659",
+            "type": "treeview",
+            "reference": {
+                "name": "viewConfig",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "rootVisible": false,
+                "designer|userClassName": "MyTreeView"
+            },
+            "customConfigs": [],
+            "expanded": true
+        },
+        {
+            "id": "ExtBox1-ext-gen5719",
+            "type": "tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "add-tool",
+                "tooltipType": null,
+                "type": "plus",
+                "designer|userClassName": "MyTool"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen11212",
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onToolClick",
+                        "implHandler": [
+                            "var parentNode = tool.up('treepanel').current();",
+                            "",
+                            "Ext.create('widget.nodewindow', {",
+                            "    parentNode: parentNode",
+                            "}).show();"
+                        ],
+                        "name": "click",
+                        "scope": "me",
+                        "designer|userClassName": "onToolClick"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen13714",
+            "type": "tool",
+            "reference": {
+                "name": "tools",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "itemId": "refresh-tool",
+                "type": "refresh",
+                "designer|userClassName": "MyTool1"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen14524",
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onToolClick1",
+                        "implHandler": [
+                            "Ext.getStore('NodeStore').load();"
+                        ],
+                        "name": "click",
+                        "scope": "me",
+                        "designer|userClassName": "onToolClick1"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen15794",
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "current",
+                "implHandler": [
+                    "var selection = this.getSelectionModel().getSelection();",
+                    "",
+                    "if (selection.length > 0) {",
+                    "    return selection[0];",
+                    "} else {",
+                    "    return this.getRootNode();",
+                    "}"
+                ],
+                "designer|userClassName": "current"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}

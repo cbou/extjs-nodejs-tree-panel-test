@@ -1,0 +1,168 @@
+{
+    "id": "ExtBox1-ext-gen6185",
+    "type": "window",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "height": 141,
+        "width": 400,
+        "layout": "fit",
+        "preventHeader": false,
+        "title": "New Node",
+        "designer|userClassName": "NodeWindow",
+        "designer|userAlias": "nodewindow"
+    },
+    "customConfigs": [],
+    "designerId": "10971c7d-b0a2-4311-935d-e9343ffdc94b",
+    "$viewOrder": 1,
+    "expanded": true,
+    "cn": [
+        {
+            "id": "ExtBox1-ext-gen6444",
+            "type": "form",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "bodyPadding": 10,
+                "preventHeader": true,
+                "title": "My Form",
+                "designer|userClassName": "MyForm"
+            },
+            "customConfigs": [],
+            "expanded": true,
+            "cn": [
+                {
+                    "id": "ExtBox1-ext-gen7296",
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "text",
+                        "fieldLabel": "Text",
+                        "designer|userClassName": "MyTextField",
+                        "layout|anchor": "100%"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen7762",
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "name": "status",
+                        "fieldLabel": "Status",
+                        "designer|userClassName": "MyTextField1",
+                        "layout|anchor": "100%"
+                    },
+                    "customConfigs": [],
+                    "expanded": true
+                },
+                {
+                    "id": "ExtBox1-ext-gen8127",
+                    "type": "toolbar",
+                    "reference": {
+                        "name": "dockedItems",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "ui": "footer",
+                        "designer|userClassName": "MyToolbar",
+                        "container|pack": "end",
+                        "dock": "bottom"
+                    },
+                    "customConfigs": [],
+                    "expanded": true,
+                    "cn": [
+                        {
+                            "id": "ExtBox1-ext-gen8583",
+                            "type": "button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "text": "Save",
+                                "designer|userClassName": "MyButton",
+                                "layout|flex": null
+                            },
+                            "customConfigs": [],
+                            "expanded": true,
+                            "cn": [
+                                {
+                                    "id": "ExtBox1-ext-gen9622",
+                                    "type": "fixedfunction",
+                                    "reference": {
+                                        "name": "items",
+                                        "type": "array"
+                                    },
+                                    "codeClass": null,
+                                    "userConfig": {
+                                        "fn": "handler",
+                                        "designer|params": [
+                                            "button",
+                                            "event"
+                                        ],
+                                        "implHandler": [
+                                            "var window = button.up('window');",
+                                            "var form = button.up('form').getForm();",
+                                            "var parent = window.parentNode;",
+                                            "var store = Ext.getStore('NodeStore');",
+                                            "var node = MyApp.model.Node.create();",
+                                            "",
+                                            "if (form.isValid()) {",
+                                            "    console.log('try to append new node to: ', parent);",
+                                            "    form.updateRecord(node);",
+                                            "    parent.appendChild(node);",
+                                            "    window.destroy();",
+                                            "}"
+                                        ],
+                                        "designer|userClassName": "handler"
+                                    },
+                                    "customConfigs": [],
+                                    "iconCls": "icon-basic-function",
+                                    "expanded": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "ExtBox1-ext-gen20504",
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onWindowBeforeRender",
+                "implHandler": [
+                    "abstractcomponent.title = 'Add to ' + abstractcomponent.parentNode.get('text');"
+                ],
+                "name": "beforerender",
+                "scope": "me",
+                "designer|userClassName": "onWindowBeforeRender"
+            },
+            "customConfigs": [],
+            "expanded": true
+        }
+    ]
+}
