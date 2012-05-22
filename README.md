@@ -22,6 +22,7 @@ Problems
 ---
 
 * After creation, informations from the server are not updated into the client. For example I make a POST with this reuqest: 
+
 ```
 {
   "id":"",
@@ -31,7 +32,9 @@ Problems
   "leaf":false
 }
 ```
+
 Even if the server send this response
+
 ```
 {
   "id":3,
@@ -39,4 +42,5 @@ Even if the server send this response
   "status":"ok"
 }
 ```
+
 The node will keep the first name "Hello".
