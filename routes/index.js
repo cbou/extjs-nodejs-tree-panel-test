@@ -38,6 +38,7 @@ exports.index = function(req, res){
 
 exports.node.get = function(req, res) {
   var parent = findNode(req.query.node);
+  var result = {};
 
   if (parent) {
     var children = [];
@@ -46,12 +47,19 @@ exports.node.get = function(req, res) {
       children.push(node.getInfosToSend(false));
     });
 
-    res.send(children);
-  } else {
+    result.children = children;
 
-    res.send([]);
+    if (req.query.node != 'root') {
+      result.node = parent.getInfosToSend(false);
+      result.node.text = result.node.text + ' TEST';
+    }
+  } else {
+    console.log('parent not found');
+    result.children = [];
   }
 
+
+  res.send(result);
 };
 
 exports.node.post = function(req, res){
@@ -61,9 +69,10 @@ exports.node.post = function(req, res){
   nodes.push(node);
   node.id = nodes.length;
 
-  var result = node.getInfosToSend();
+  var result = {};
 
-  result.text = result.text + ' test';
+  result.node = node.getInfosToSend();
+  result.node.text = result.node.text + ' TEST Create';
 
   res.send(result);
 };

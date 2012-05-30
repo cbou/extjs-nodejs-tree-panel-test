@@ -37,7 +37,31 @@ Ext.define('MyApp.store.NodeStore', {
                     type: 'json',
                     nameProperty: 'text'
                 }
+            },
+            listeners: {
+                beforeload: {
+                    fn: me.onTreestoreBeforeLoad,
+                    scope: me
+                },
+                load: {
+                    fn: me.onTreestoreLoad,
+                    scope: me
+                }
             }
         }, cfg)]);
+    },
+
+    onTreestoreBeforeLoad: function(store, operation, options) {
+        console.log(operation);
+        if (operation.response) {
+
+
+            console.log(operation.response.responseText);
+        }
+    },
+
+    onTreestoreLoad: function(treestore, node, records, successful, options) {
+
     }
+
 });

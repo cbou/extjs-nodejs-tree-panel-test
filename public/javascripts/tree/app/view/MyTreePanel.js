@@ -67,7 +67,9 @@ Ext.define('MyApp.view.MyTreePanel', {
     },
 
     onToolClick1: function(tool, e, options) {
-        Ext.getStore('NodeStore').load();
+        var parentNode = tool.up('treepanel').current();
+
+        var result = Ext.getStore('NodeStore').load({node: parentNode});
     },
 
     current: function() {

@@ -105,7 +105,9 @@
                     "userConfig": {
                         "fn": "onToolClick1",
                         "implHandler": [
-                            "Ext.getStore('NodeStore').load();"
+                            "var parentNode = tool.up('treepanel').current();",
+                            "",
+                            "var result = Ext.getStore('NodeStore').load({node: parentNode});"
                         ],
                         "name": "click",
                         "scope": "me",

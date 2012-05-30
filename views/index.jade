@@ -3,4 +3,22 @@ script
   Ext.app.Application.override({
       appFolder: 'javascripts/tree/app'
   });
+  
+  Ext.data.Operation.override({
+    setCompleted: function() {
+      this.complete = true;
+      this.running  = false;
+
+      if (this.action === 'read' && this.node && this.response) {
+        data = Ext.decode(this.response.responseText);
+        if (Ext.isObject(data.node)) {
+          for (var key in data.node) {
+            this.node.set(key, data.node[key]);
+          }
+          this.node.commit();
+        }
+      }
+    }
+  });
+  
 script(src='/javascripts/tree/app.js')
