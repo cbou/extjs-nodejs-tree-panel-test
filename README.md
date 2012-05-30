@@ -40,7 +40,7 @@ Even if the server send this response
 ```
 {
   "id":3,
-  "text":"Hello test",
+  "text":"Hello after create",
   "status":"ok"
 }
 ```
