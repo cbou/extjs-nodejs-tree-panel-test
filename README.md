@@ -20,6 +20,55 @@ Description
 * The panel has 2 Tools, one refresh and one add.
 * If you click on the tool add, it will add a node to the selected Node (or to the root if you select nothing).
 
+Problems refresh node:
+---
+
+How to refresh all data of a node from a tree store ?
+
+Best solution for now is to override the Ext.data.Operation.setCompleted like that:
+
+```
+  Ext.data.Operation.override({
+    setCompleted: function() {
+      this.complete = true;
+      this.running  = false;
+
+      if (this.action === 'read' && this.node && this.response) {
+        data = Ext.decode(this.response.responseText);
+        if (Ext.isObject(data.node)) {
+          for (var key in data.node) {
+            this.node.set(key, data.node[key]);
+          }
+          this.node.commit();
+        }
+      }
+    }
+  });
+```
+
+And during a GET request the server should send this response:
+
+```
+{
+  node: {
+    text: 'New Name'
+  },
+  children: [array with child nodes],
+  success: true
+}
+```
+
+The node will be updated with the data present in the property `node` of the json.
+
+Problem is that Ext will make a PUT request to commit new informations because of this code `this.node.set(key, data.node[key]);`.
+
+NOTE: If you only want to refresh the children you can use this code:
+
+```
+this.getStore('MyTreeStore').load({ params: { id: this.getId().getValue()} });
+```
+
+
 Problem update after creation:
 ---
 
