@@ -42,10 +42,6 @@ Ext.define('MyApp.store.NodeStore', {
                 beforeload: {
                     fn: me.onTreestoreBeforeLoad,
                     scope: me
-                },
-                load: {
-                    fn: me.onTreestoreLoad,
-                    scope: me
                 }
             }
         }, cfg)]);
@@ -58,10 +54,6 @@ Ext.define('MyApp.store.NodeStore', {
 
             console.log(operation.response.responseText);
         }
-    },
-
-    onTreestoreLoad: function(treestore, node, records, successful, options) {
-
     }
 
 });

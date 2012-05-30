@@ -79,34 +79,14 @@
                 "implHandler": [
                     "console.log(operation);",
                     "if (operation.response) {",
-                    "    ",
-                    "    ",
-                    "console.log(operation.response.responseText);",
+                    "",
+                    "",
+                    "    console.log(operation.response.responseText);",
                     "}"
                 ],
                 "name": "beforeload",
                 "scope": "me",
                 "designer|userClassName": "onTreestoreBeforeLoad"
-            },
-            "customConfigs": [],
-            "expanded": true
-        },
-        {
-            "id": "ExtBox1-ext-gen5670",
-            "type": "basiceventbinding",
-            "reference": {
-                "name": "listeners",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "fn": "onTreestoreLoad",
-                "implHandler": [
-                    ""
-                ],
-                "name": "load",
-                "scope": "me",
-                "designer|userClassName": "onTreestoreLoad"
             },
             "customConfigs": [],
             "expanded": true
