@@ -68,6 +68,8 @@ NOTE: If you only want to refresh the children you can use this code:
 this.getStore('MyTreeStore').load({ params: { id: this.getId().getValue()} });
 ```
 
+Thanks to [Ujjwal Reddy](http://www.sencha.com/forum/showthread.php?206335-extjs-4.1-tree-refresh-a-specific-node&s=d6bed97aa4ec99b13b6c21ff85503fb3) for helping.
+
 
 Problem update after creation:
 ---
