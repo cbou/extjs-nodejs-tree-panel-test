@@ -51,7 +51,7 @@ exports.node.get = function(req, res) {
 
     if (req.query.node != 'root') {
       result.node = parent.getInfosToSend(false);
-      result.node.text = result.node.text + ' TEST';
+      result.node.text = result.node.text + ' after get';
     }
   } else {
     console.log('parent not found');
@@ -72,7 +72,7 @@ exports.node.post = function(req, res){
   var result = {};
 
   result.node = node.getInfosToSend();
-  result.node.text = result.node.text + ' TEST Create';
+  result.node.text = result.node.text + ' after create';
 
   res.send(result);
 };
