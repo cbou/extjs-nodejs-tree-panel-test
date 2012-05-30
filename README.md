@@ -20,10 +20,10 @@ Description
 * The panel has 2 Tools, one refresh and one add.
 * If you click on the tool add, it will add a node to the selected Node (or to the root if you select nothing).
 
-Problems
+Problem update after creation:
 ---
 
-* After creation, informations from the server are not updated into the client. For example I make a POST with this reuqest: 
+After creation, informations from the server are not updated into the client. For example I make a POST with this reuqest: 
 
 ```
 {
@@ -46,3 +46,17 @@ Even if the server send this response
 ```
 
 The node will keep the first name "Hello".
+
+Solution is to send this response on post request:
+
+```
+{ 
+    "success": true,
+    "children": [{
+       "id": "4faccf93f597090d14000010/home/user/file",
+       "text": "test file",
+   }]
+}
+```
+
+Thanks to [vietits](http://www.sencha.com/forum/showthread.php?206332-extjs-4.1-tree-add-new-node-with-server-changes) for the solution.

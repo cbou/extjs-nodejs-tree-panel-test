@@ -71,8 +71,11 @@ exports.node.post = function(req, res){
 
   var result = {};
 
-  result.node = node.getInfosToSend();
-  result.node.text = result.node.text + ' after create';
+  var infosToSend = node.getInfosToSend();
+  infosToSend.text = infosToSend.text + ' after create';
+
+  result.children = [infosToSend];
+  result.success = true;
 
   res.send(result);
 };
